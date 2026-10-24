@@ -13,8 +13,10 @@ def target_at(point, formats):
     dx, dy = point.x()-190, point.y()-190
     if not formats or not 72 <= math.hypot(dx, dy) <= 176:
         return -1
-    return int(((math.degrees(math.atan2(dy, dx))+90+180/len(formats)) % 360)
-               / (360/len(formats)))
+    index = int(((math.degrees(math.atan2(dy, dx))+90+180/len(formats)) % 360)
+                / (360/len(formats)))
+    # Exact painted geometry: rounded corners and sector gaps never activate.
+    return index if segment(index, len(formats)).contains(point) else -1
 
 
 def point(radius, angle):

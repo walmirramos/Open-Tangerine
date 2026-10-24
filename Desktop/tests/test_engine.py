@@ -100,6 +100,7 @@ class ConversionTests(unittest.TestCase):
     def test_media_wav_to_flac(self):
         ff=shutil.which('ffmpeg') or ('/opt/homebrew/bin/ffmpeg' if Path('/opt/homebrew/bin/ffmpeg').exists() else None)
         if not ff:self.skipTest('FFmpeg not installed')
+        ff=str(Path(ff).resolve())  # WinGet exposes an executable symlink on Windows.
         import wave
         p=self.root/'sample.wav'
         with wave.open(str(p),'wb') as w:w.setnchannels(1);w.setsampwidth(2);w.setframerate(8000);w.writeframes(b'\0\0'*8000)
@@ -107,6 +108,7 @@ class ConversionTests(unittest.TestCase):
     def test_all_media_outputs(self):
         ff=shutil.which('ffmpeg') or ('/opt/homebrew/bin/ffmpeg' if Path('/opt/homebrew/bin/ffmpeg').exists() else None)
         if not ff:self.skipTest('FFmpeg not installed')
+        ff=str(Path(ff).resolve())
         p=self.root/'video.mp4'
         subprocess.run([ff,'-nostdin','-v','error','-f','lavfi','-i','color=c=orange:s=64x64:r=12','-f','lavfi','-i','sine=frequency=440:sample_rate=24000','-t','0.5','-c:v','libx264','-pix_fmt','yuv420p','-c:a','aac',str(p)],check=True)
         for target in ('MP4','WEBM','MP3','WAV','FLAC','OGG'):

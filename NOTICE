@@ -3,3 +3,9 @@ GPL-3.0-only. See LICENSE.
 Native app substantially based on Satsuma, Copyright 2026 plyght, MIT.
 See THIRD_PARTY_NOTICES.md and NativeApp/LICENSE.
 Independent of Tangerine; no endorsement implied.
+
+LocalConvert Windows fork, 2026: modifications to Desktop/engine.py and
+Desktop/glass_design.py, and new hover_resolver.py, shift_tap.py,
+windows_main.py, windows_selftest.py, package_windows.py and fork tests.
+These modifications are also GPL-3.0-only. Upstream author credits and
+copyright notices remain applicable. No affiliation with Apple or Tangerine.

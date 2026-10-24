@@ -1,4 +1,19 @@
-# Open Tangerine
+# LocalConvert — fork Windows do Open Tangerine
+
+Branch de desenvolvimento `codex/windows-radial`. Esta derivação usa diretamente
+o código Python/Qt do projeto original, sob GPL-3.0-only. Mantém os conversores e
+workers, acrescentando bandeja por padrão, disco radial com clique, identificação
+do arquivo sob o ponteiro via UI Automation/Shell e ativação por toque em Shift.
+
+**[Instruções, compilação e limites desta versão Windows](WINDOWS-LEIA-ME.md)** ·
+**[Resultados realmente executados](WINDOWS-TESTES.md)**
+
+O texto original abaixo descreve o upstream e seus recursos macOS/Windows;
+não é uma promessa de equivalência deste fork ao Tangerine para macOS.
+
+---
+
+# Open Tangerine (README upstream preservado)
 
 <a href="https://www.trymacapps.com" target="_blank" rel="noopener">
   <img src="https://www.trymacapps.com/badge.png" alt="Featured on TryMacApps" width="200" height="67" />

@@ -1,5 +1,12 @@
 .DS_Store
 .build/
+.venv/
+__pycache__/
+*.spec
+build/
+test-results/
+Aplicativo/
+*.zip
 dist/
 *.log
 .env

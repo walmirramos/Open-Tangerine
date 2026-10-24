@@ -147,6 +147,13 @@ def convert(job):
                 im.info.clear()
                 fmt='PDF' if target=='Image → PDF' else target
                 im.save(stage,format=fmt,quality=quality)
+                # Fork: decode/parse the temporary result before publication.
+                if fmt == 'PDF':
+                    if len(read_pdf(stage).pages) != 1:
+                        raise ConversionError('Generated PDF did not contain one valid page.')
+                else:
+                    with Image.open(stage) as check:
+                        check.verify()
                 ext='pdf' if fmt=='PDF' else IMAGE_OUTPUTS[target]
                 results.append(publish(stage,folder,stem,ext))
             finally: im.close()
